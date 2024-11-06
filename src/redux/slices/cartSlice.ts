@@ -1,12 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
+import {CartItem} from "../../interfaces/product.ts";
 
+const state_initial: {
+    items: CartItem[],
+    totalQuantity: number,
+    totalAmount: number,
+} = {
+    items: [],
+    totalQuantity: 0,
+    totalAmount: 0,
+}
 const cartSlice = createSlice({
     name: 'cart',
-    initialState: {
-        items: [],
-        totalQuantity: 0,
-        totalAmount: 0,
-    },
+    initialState: state_initial,
     reducers: {
         addItem: (state, action) => {
             const newItem = action.payload;
@@ -61,5 +67,5 @@ const cartSlice = createSlice({
     },
 });
 
-export const { addItem, incrementItem, decrementItem, removeItem } = cartSlice.actions;
+export const {addItem, incrementItem, decrementItem, removeItem} = cartSlice.actions;
 export default cartSlice.reducer;

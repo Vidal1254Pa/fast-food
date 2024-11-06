@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {RootState} from "../redux/store.ts";
 
 export default function Header() {
-    const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+    const totalQuantity = useSelector((state: RootState) => state.cart.totalQuantity);
 
     return (
         <header className="bg-gray-900 text-white py-4 shadow-lg">
@@ -12,7 +13,8 @@ export default function Header() {
                     <Link to="/productos" className="hover:text-yellow-500 transition">Productos</Link>
                     <Link to="/carrito" className="hover:text-yellow-500 transition relative">
                         Carrito
-                        <span className="bg-yellow-500 text-gray-900 rounded-full px-2 py-0.5 ml-2 text-sm font-bold">{totalQuantity}</span>
+                        <span
+                            className="bg-yellow-500 text-gray-900 rounded-full px-2 py-0.5 ml-2 text-sm font-bold">{totalQuantity}</span>
                     </Link>
                 </div>
             </nav>

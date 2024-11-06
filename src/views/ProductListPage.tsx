@@ -1,7 +1,8 @@
-import { useDispatch } from "react-redux";
-import { addItem } from "../redux/slices/cartSlice";
+import {useDispatch} from "react-redux";
+import {addItem} from "../redux/slices/cartSlice";
+import Product from "../interfaces/product.ts";
 
-const products = [
+const products: Product[] = [
     {
         id: 1,
         name: 'Classic Burger',
@@ -49,18 +50,23 @@ const products = [
 export default function ProductListPage() {
     const dispatch = useDispatch();
 
-    const handleAddToCart = (product) => {
+    const handleAddToCart = (product: Product) => {
         dispatch(addItem(product));
     };
 
     return (
         <div className="product-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6 bg-gray-100 min-h-screen">
             {products.map((product) => (
-                <div key={product.id} className="product-item bg-white p-4 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
-                    <img src={product.imageUrl} alt={product.name} className="w-full h-48 object-cover rounded-md mb-4" />
+                <div key={product.id}
+                     className="product-item bg-white p-4 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                    <img src={product.imageUrl} alt={product.name}
+                         className="w-full h-48 object-cover rounded-md mb-4"/>
                     <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
                     <p className="text-gray-700 mb-4">${product.price.toFixed(2)}</p>
-                    <button onClick={() => handleAddToCart(product)} className="bg-yellow-500 text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-600 transition duration-300 w-full">Añadir a la cesta</button>
+                    <button onClick={() => handleAddToCart(product)}
+                            className="bg-yellow-500 text-black font-semibold py-2 px-4 rounded-full hover:bg-yellow-600 transition duration-300 w-full">Añadir
+                        a la cesta
+                    </button>
                 </div>
             ))}
         </div>
