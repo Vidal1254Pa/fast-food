@@ -1,6 +1,6 @@
 import {useDispatch} from "react-redux";
 import {addItem} from "../redux/slices/cartSlice";
-import Product from "../interfaces/product.ts";
+import {Product} from "../interfaces/product.ts";
 
 const products: Product[] = [
     {
