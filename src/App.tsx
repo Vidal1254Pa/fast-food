@@ -12,8 +12,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/productos" element={<ProductListPage />} />
-          <Route path="/carrito" element={<CartPage />} />
+          <Route path="/products" element={<ProductListPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </BrowserRouter>
     </>
